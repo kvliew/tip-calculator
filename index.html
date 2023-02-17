@@ -3,42 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
+  <title>Tip Calculator</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      display: none; }
   </style>
 </head>
+
 <body>
 
   Bill
+  <input type="number" id="bill-amount" placeholder="Enter Your Bill Amount"/>
+  <input type="number" id="table-size" placeholder="Enter Your Table Size"/>
+  <input type="number" id="custom-percentage" placeholder="Enter Custom Tip %">
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+  <div>
+    <input type="radio" id="5p" name="tip-percentage" value="5" checked>
+    <label for="5p">5%</label>
+    <input type="radio" id="10p" name="tip-percentage" value="10">
+    <label for="10p">10%</label>
+    <input type="radio" id="15p" name="tip-percentage" value="15">
+    <label for="15p">15%</label>
+    <input type="radio" id="25p" name="tip-percentage" value="25">
+    <label for="15p">25%</label>
+    <input type="radio" id="50p" name="tip-percentage" value="50">
+    <label for="50p">50%</label>
+  </div>
 
-  Number of People
-
+  <br>
   Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
+  <p id="tip-amount">0</p>
+  Total Amount
+  <p id="total-amount">0</p>
   
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
+
+<script src="script.js"></script>
