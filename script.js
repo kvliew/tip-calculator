@@ -21,13 +21,14 @@ function updateBillAmount() {
 
 function updateSelected() {
   tipPercentage = document.querySelector("input[name='tip-percentage']:checked").value;
-  customPercentage.value = 0;
+  customPercentage.value = "";
   calculateTipAmount();
 }
 
 function updateCustom() {
   tipPercentage = customPercentage.value;
   // document.querySelector("input[name='tip-percentage']:checked").checked = false;
+  deselectTips();
   calculateTipAmount();
 }
 
@@ -49,5 +50,19 @@ function uncheck() {
 }
 
 function reset() {
-  
+  tipPercentage = 0;
+  customPercentage.value = "";
+  billAmount.value = "";
+  tableSize.value = "";
+  document.getElementById("tip-amount").textContent = "0.00";
+  document.getElementById("total-amount").textContent = "0.00";
+  deselectTips();
 };
+
+function deselectTips() {
+  tipPercentages.forEach(tipPercentageCheckBox => {
+    if(tipPercentageCheckBox.checked == true) {
+      tipPercentageCheckBox.checked = false;
+    }
+  });
+}

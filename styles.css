@@ -4,5 +4,99 @@
   margin: 0;
   padding: 0; 
   box-sizing: border-box;
+}
+
+p {
   font-family: 'Manrope', sans-serif;
+}
+
+body {
+  background-color: hsl(185, 41%, 84%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+svg {
+  margin-top: 10vh;
+}
+
+main {
+  margin-top: 15vh;
+  width: 50vw;
+  height: 40vh;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  gap: 30px;
+}
+
+input[type="number"] {
+  padding: 10px;
+  border-style: none;
+  background-color: hsl(189, 41%, 97%);
+}
+input[type="number"]::placeholder {
+  font-family: 'Manrope', sans-serif;
+}
+
+input[type="radio"] {
+  visibility: hidden;
+  font-family: 'Manrope', sans-serif;
+}
+
+label {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+input[type="radio"]:checked+label {
+  background-color: hsl(172, 67%, 45%);
+  color:hsl(183, 100%, 15%);
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.calculated-values {
+  flex-grow: 1;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+#tip-amount, #total-amount {
+  font-size: 24px;
+  color:hsl(172, 67%, 45%)
+}
+
+button {
+  padding: 10px;
+  background-color: hsl(172, 67%, 45%);
+  font-weight: bolder;
+  border-style: none;
+  color: hsl(183, 100%, 15%);
+  width: 90%;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: hsl(172, 48%, 37%);
+  cursor: pointer;
+}
+button:active {
+  background-color: hsl(185, 41%, 84%)
 }
