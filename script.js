@@ -3,12 +3,12 @@ var tableSize = document.getElementById("table-size");
 var customPercentage = document.getElementById("custom-percentage"); 
 var tipAmount = document.getElementById("tip-amount");
 var totalAmount = document.getElementById("total-amount");
-var selected;
 var tipPercentages = document.querySelectorAll("input[name='tip-percentage']");
-var tipPercentage = 5;
+var tipPercentage = 0;
+var billDivider = 1;
 
 billAmount.addEventListener('input', updateBillAmount);
-// tableSize.addEventListener('input', calculate);
+tableSize.addEventListener('input', updateTableSize);
 
 tipPercentages.forEach(tipPercentages => {
   tipPercentages.addEventListener('change', updateSelected);
@@ -20,7 +20,7 @@ function updateBillAmount() {
 }
 
 function updateSelected() {
-  tipPercentage = document.querySelector("input[name='tip-percentage']:checked").value;
+  let tipPercentage = document.querySelector("input[name='tip-percentage']:checked").value;
   customPercentage.value = 0;
   calculateTipAmount(tipPercentage);
 }
@@ -31,9 +31,17 @@ function updateCustom() {
   calculateTipAmount(tipPercentage);
 }
 
+function updateTableSize() {
+  billDivider = tableSize.value || 1;
+  calculateTipAmount(tipPercentage);
+}
+
 function calculateTipAmount(tipPercentage) {
-  let tipAmount = billAmount.value*tipPercentage/100;
-  document.getElementById("tip-amount").innerHTML = tipAmount;
+  let tipAmount = (billAmount.value*tipPercentage/100)/billDivider;
+  let bill = parseFloat(billAmount.value) || 0;
+  let totalAmount = (bill + tipAmount*billDivider)/billDivider;
+  document.getElementById("tip-amount").textContent = tipAmount;
+  document.getElementById("total-amount").textContent = totalAmount;
 }
 
 function reset() {
